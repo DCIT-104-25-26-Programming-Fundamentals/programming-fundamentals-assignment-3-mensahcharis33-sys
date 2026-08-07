@@ -41,5 +41,43 @@
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
+// TASK: Prime Number Checker (Alternative Version)
+// ------------------------------------------------------------
+// This program checks whether a given number is prime using a cleaner loop
+// and early exit for efficiency.
+// ------------------------------------------------------------
+
+const readlineSync = require('readline-sync');
+
+// Function to determine if a number is prime
+function isPrime(num) {
+  // Handle numbers less than 2
+  if (num < 2) {
+    return false;
+  }
+
+  // Check divisibility from 2 up to num - 1
+  for (let divisor = 2; divisor < num; divisor++) {
+    if (num % divisor === 0) {
+      return false; // Found a divisor, not prime
+    }
+  }
+
+  return true; // No divisors found, number is prime
+}
+
+// Main function
+function main() {
+  const number = readlineSync.questionInt('Enter a number: ');
+
+  const result = isPrime(number)
+    ? `${number} is a prime number.`
+    : `${number} is NOT a prime number.`;
+
+  console.log(result);
+}
+
+// Run the program
+main();
 
 
