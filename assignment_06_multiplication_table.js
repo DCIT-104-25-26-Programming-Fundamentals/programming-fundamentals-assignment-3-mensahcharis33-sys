@@ -58,5 +58,52 @@
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
+const readlineSync = require('readline-sync');
+
+// PART A: Generate a single multiplication table
+function printSingleTable(number) {
+  if (number <= 0) {
+    console.log('Error: Please enter a positive integer.');
+    return;
+  }
+
+  console.log(`\nMultiplication Table for ${number}:`);
+  for (let i = 1; i <= 12; i++) {
+    console.log(`${number} x ${i} = ${number * i}`);
+  }
+}
+
+// PART B: Generate tables from 1 to N
+function printTablesFromOneToN(n) {
+  if (n <= 0) {
+    console.log('Error: Please enter a positive integer.');
+    return;
+  }
+
+  for (let num = 1; num <= n; num++) {
+    console.log(`\nMultiplication Table for ${num}:`);
+    for (let i = 1; i <= 12; i++) {
+      console.log(`${num} x ${i} = ${num * i}`);
+    }
+    if (num < n) {
+      console.log('---------------------------');
+    }
+  }
+}
+
+// MAIN PROGRAM
+function main() {
+  console.log('--- MULTIPLICATION TABLE GENERATOR ---');
+
+  // Part A
+  const number = readlineSync.questionInt('Enter a number for a single table: ');
+  printSingleTable(number);
+
+  // Part B
+  const n = readlineSync.questionInt('\nEnter a number N to print tables from 1 to N: ');
+  printTablesFromOneToN(n);
+}
+
+main();
 
 
